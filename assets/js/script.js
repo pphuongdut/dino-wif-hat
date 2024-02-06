@@ -17,6 +17,9 @@ setPixelToWorldScale();
 window.addEventListener('resize', setPixelToWorldScale);
 document.addEventListener('keydown', handleStart, { once: true });
 document.addEventListener('touchstart', handleStart, { once: true });
+document.addEventListener('touchstart', function () {
+    onJump({ code: 'Space' }); // Simulate Space key press when screen is touched
+});
 
 let lastTime;
 let speedScale;
