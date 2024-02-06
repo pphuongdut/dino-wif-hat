@@ -15,16 +15,30 @@
         <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
     </head>
     <body>
-        <img src="./assets/Bg sky.svg" class="h-screen w-screen object-cover absolute z-0" />
+        <img
+            src="./assets/Bg sky.svg"
+            class="h-screen w-screen object-cover absolute z-0"
+        />
         <img src="./assets/sun2.svg" class="absolute right-10 top-10 w-2/6" />
-        <img src="./assets/logo t-flex.svg" class="absolute left-1/2 -translate-x-1/2 w-1/3 top-[10vh] " />
-        <div class="world" data-world>
-            <div class="score" data-score>0</div>
+        <div
+            class="absolute flex flex-col left-1/2 w-1/3 -translate-x-1/2 top-[10vh] gap-8 justify-center items-center"
+        >
+            <img src="./assets/logo t-flex.svg" class="w-full" />
+            <div
+                class="score flex gap-3 w-10/12 justify-between border-b-4 text-white border-solid -ml-[45px]"
+                data-score
+            >
+                <span class="text-2xl:">Score</span>
+                <span class="text-3xl" data-score-number>0</span>
+            </div>
+        </div>
 
+        <div class="world" data-world>
             <div
                 class="start-screen text-blue-800 text-base"
                 data-start-screen
             ></div>
+
             <img src="./assets/floor_1.svg" class="ground" data-ground />
             <img src="./assets/floor_1.svg" class="ground" data-ground />
             <img
@@ -34,5 +48,7 @@
                 data-dino
             />
         </div>
+        <img src="./assets/nui va cat.svg" class="sand" data-sand />
+        <img src="./assets/nui va cat.svg" class="sand" data-sand />
     </body>
 </html>

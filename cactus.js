@@ -6,7 +6,7 @@ import {
 
 const SPEED = 0.05;
 const CACTUS_INTERVAL_MIN = 1000;
-const CACTUS_INTERVAL_MAX = 2300;
+const CACTUS_INTERVAL_MAX = 2000;
 const worldElem = document.querySelector('[data-world]');
 
 let nextCactusTime;
