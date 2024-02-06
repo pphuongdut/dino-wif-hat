@@ -5,10 +5,10 @@ import {
 } from './updateCustomProperty.js';
 
 const dinoElem = document.querySelector('[data-dino]');
-const JUMP_SPEED = 0.45;
-const GRAVITY = 0.0015;
+const JUMP_SPEED = 0.48;
+const GRAVITY = 0.0018;
 const DINO_FRAME_COUNT = 2;
-const FRAME_TIME = 100;
+const FRAME_TIME = 120;
 let isJumping;
 let dinoFrame;
 let currentFrameTime;
@@ -35,17 +35,17 @@ export function getDinoRect() {
 }
 
 export function setDinoLose() {
-    dinoElem.src = 'assets/dino-lose.png';
+    dinoElem.src = 'assets/dino/dino-lose.svg';
 }
 
 function handleRun(delta, speedScale) {
     if (isJumping) {
-        dinoElem.src = 'assets/dino-stationary.png';
+        dinoElem.src = 'assets/dino/dino-jump.svg';
         return;
     }
     if (currentFrameTime >= FRAME_TIME) {
         dinoFrame = (dinoFrame + 1) % DINO_FRAME_COUNT;
-        dinoElem.src = `assets/dino-run-${dinoFrame}.png`;
+        dinoElem.src = `assets/dino/dino-run-${dinoFrame}.svg`;
         currentFrameTime -= FRAME_TIME;
     }
     currentFrameTime += delta * speedScale;
