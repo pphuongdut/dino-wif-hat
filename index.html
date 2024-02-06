@@ -4,33 +4,82 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="style.css" />
-        <script src="./script.js" type="module" defer></script>
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <link rel="stylesheet" href="./assets/css/text.css" />
+        <script src="./assets/js/script.js" type="module" defer></script>
         <title>T-FLEX</title>
         <script src="https://cdn.tailwindcss.com"></script>
+
+        <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico" />
         <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css"
             rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
         />
-        <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
     </head>
     <body>
+        <nav
+            class="navbar flex flex-wrap items-start justify-start p-4 lg:px-8 absolute top-0 left-0 w-full"
+        >
+            <div class="flex items-center gap-2"></div>
+
+            <div class="flex items-center flex-wrap gap-2 lg:gap-6 text-white">
+                <button
+                    data-modal-target="default-modal"
+                    data-modal-toggle="default-modal"
+                    class="text-sm lg:text-xl font-semibold leading-6 text-white hover:text-blue-300 p-2"
+                    type="button"
+                >
+                    <a target="_blank">Information</a>
+                </button>
+
+                <a
+                    class="text-sm lg:text-xl font-semibold leading-6 text-white hover:text-blue-300 p-2 flex items-center gap-2"
+                    target="_blank"
+                >
+                    <img
+                        src="/assets/img/logo/x-icon.png"
+                        alt=""
+                        srcset=""
+                        class="w-6 h-6 rounded"
+                    />
+                    <span>X</span>
+                </a>
+                <a
+                    class="text-sm lg:text-xl font-semibold leading-6 text-white hover:text-blue-300 p-2 flex item-center gap-2"
+                    target="_blank"
+                >
+                    <img
+                        src="/assets/img/logo/telegram.png"
+                        alt=""
+                        srcset=""
+                        class="w-6 h-6 rounded"
+                    />
+                    <span>Telegram</span>
+                </a>
+            </div>
+        </nav>
         <img
-            src="./assets/Bg sky.svg"
+            src="./assets/img/Bg sky.svg"
             class="h-screen w-screen object-cover absolute z-0"
         />
-        <img src="./assets/sun2.svg" class="absolute right-10 top-10 w-2/6" />
+        <img
+            src="./assets/img/sun2.svg"
+            class="absolute right-10 top-10 w-2/6"
+        />
         <div
             class="absolute flex flex-col left-1/2 w-1/3 -translate-x-1/2 top-[10vh] gap-8 justify-center items-center"
         >
-            <img src="./assets/logo t-flex.svg" class="w-full" />
+            <img src="./assets/img/logo t-flex.svg" class="w-full" />
             <div
-                class="score flex gap-3 w-10/12 justify-between border-b-4 text-white border-solid -ml-[45px]"
+                class="score hidden flex gap-3 w-10/12 justify-between border-b-4 text-white border-solid -ml-[45px]"
                 data-score
             >
-                <span class="text-2xl:">Score</span>
+                <span class="text-2xl">Score</span>
                 <span class="text-3xl" data-score-number>0</span>
             </div>
+            <button class="main-button rounded-full -ml-[45px]">
+                <span class="text-2xl text-white uppercase"> Buy </span>
+            </button>
         </div>
 
         <div class="world" data-world>
@@ -39,16 +88,119 @@
                 data-start-screen
             ></div>
 
-            <img src="./assets/floor_1.svg" class="ground" data-ground />
-            <img src="./assets/floor_1.svg" class="ground" data-ground />
+            <img src="./assets/img/floor_1.svg" class="ground" data-ground />
+            <img src="./assets/img/floor_1.svg" class="ground" data-ground />
             <img
-                src="./assets/dino/dino-start.svg"
+                src="./assets/img/dino/dino-start.svg"
                 alt=""
                 class="dino"
                 data-dino
             />
         </div>
-        <img src="./assets/nui va cat.svg" class="sand" data-sand />
-        <img src="./assets/nui va cat.svg" class="sand" data-sand />
+        <img src="./assets/img/nui va cat.svg" class="sand" data-sand />
+        <img src="./assets/img/nui va cat.svg" class="sand" data-sand />
+
+        <!-- Main modal -->
+        <div
+            id="default-modal"
+            tabindex="-1"
+            aria-hidden="true"
+            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+        >
+            <div class="relative p-4 w-full max-w-3xl max-h-full">
+                <!-- Modal content -->
+                <div
+                    class="relative bg-white rounded-lg shadow dark:bg-gray-700"
+                >
+                    <!-- Modal body -->
+                    <div class="p-4 md:p-5 space-y-4">
+                        <p
+                            class="text-base leading-relaxed text-gray-500 dark:text-gray-400"
+                        >
+                            T-Flex is the lit upgrade of Tyrannosaurus rex,
+                            bringing that dope flex culture vibes straight outta
+                            the West.
+                        </p>
+                        <p
+                            class="text-base leading-relaxed text-gray-500 dark:text-gray-400"
+                        >
+                            Wanna boost your flex game? Chill, T-Flex got this.
+                            He's here to teach you how to slay and flex, day in,
+                            day out. Gruhhhhhhh!
+                        </p>
+                        <div>
+                            <div
+                                class="mx-auto xl:flex xl:justify-center xl:py-8"
+                            >
+                                <div class="py-8 xl:w-1/3 xl:flex-none xl:py-0">
+                                    <div
+                                        class="mx-auto flex items-center px-4 xl:max-w-none xl:px-8 text-center"
+                                    >
+                                        <div
+                                            class="ml-4 flex flex-auto flex-col"
+                                        >
+                                            <h3 class="font-medium text-xl">
+                                                Total Supply
+                                            </h3>
+                                            <p class="text-2xl font-semibold">
+                                                1.000.000.000
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="py-8 xl:w-1/3 xl:flex-none xl:py-0">
+                                    <div
+                                        class="mx-auto flex items-center px-4 xl:max-w-none xl:px-8 text-center"
+                                    >
+                                        <div
+                                            class="ml-4 flex flex-auto flex-col"
+                                        >
+                                            <h3 class="font-medium text-xl">
+                                                Ticket
+                                            </h3>
+                                            <p class="text-2xl font-semibold">
+                                                $FLEX
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="py-8 xl:w-1/3 xl:flex-none xl:py-0">
+                                    <div
+                                        class="mx-auto flex items-center px-4 xl:max-w-none xl:px-8 text-center"
+                                    >
+                                        <div
+                                            class="ml-4 flex flex-auto flex-col"
+                                        >
+                                            <h3 class="font-medium text-xl">
+                                                Blockchain
+                                            </h3>
+                                            <p class="text-2xl font-semibold">
+                                                Base
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="flex overflow-x-auto">
+                                    <div
+                                        class="mx-auto flex space-x-12 whitespace-nowrap px-4 py-3 sm:px-6 lg:space-x-24 lg:px-8"
+                                    >
+                                        <div class="text-2xl font-bold">
+                                            10% Marketing
+                                        </div>
+                                        <div class="text-2xl font-bold">
+                                            90% LP
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
     </body>
 </html>

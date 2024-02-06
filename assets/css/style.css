@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'TitanOne';
-    src: url('./assets/fonts/Titan_One/Titan_One/TitanOne-Regular.ttf')
+    src: url('../fonts/Titan_One/Titan_One/TitanOne-Regular.ttf')
         format('truetype');
 }
 
@@ -14,21 +14,18 @@
     font-family: TitanOne, sans-serif;
 }
 
+img {
+    max-width: unset !important;
+}
+
 body {
     overflow: hidden;
     width: 100vw;
     height: 100vh;
 }
 
-img {
-    max-width: unset !important;
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+.navbar {
+    z-index: 1003;
 }
 
 .world {
@@ -89,4 +86,40 @@ body {
     height: 100px;
     z-index: 1001;
     min-height: 100px;
+}
+
+.main-button {
+    background-color: #4b76eb;
+    padding: 10px 35px;
+    position: relative;
+    cursor: pointer;
+
+    &:after {
+        cursor: pointer;
+        background-color: #4b70eb;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 100px;
+        animation-name: blink;
+        animation-duration: 1.3s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate-reverse;
+        animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    }
+}
+
+@keyframes blink {
+    0% {
+        transform: scale3d(1, 1, 1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale3d(1.4, 1.6, 1.4);
+        opacity: 0;
+    }
 }

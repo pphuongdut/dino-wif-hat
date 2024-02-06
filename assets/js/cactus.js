@@ -54,7 +54,7 @@ function createCactus() {
     // random cactus
     const cactusId = randomInteger(0, 6);
 
-    cactus.src = 'assets/cactus/logo' + cactusId + '.svg';
+    cactus.src = 'assets/img/cactus/logo' + cactusId + '.svg';
     cactus.classList.add('cactus');
     setCustomProperty(cactus, '--left', 100);
     worldElem.append(cactus);

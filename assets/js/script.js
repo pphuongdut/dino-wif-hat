@@ -57,10 +57,12 @@ function isCollision(rect1, rect2, padding = 50) {
 function updateSpeedScale(delta) {
     speedScale += delta * SPEED_SCALE_INCREASE;
 }
+
 function updateScore(delta) {
     score += delta * 0.01;
     scoreSpan.textContent = Math.floor(score);
 }
+
 function handleStart() {
     lastTime = null;
     speedScale = 1;
