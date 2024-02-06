@@ -45,6 +45,7 @@ function checkLose() {
     const dinoRect = getDinoRect();
     return getCactusRects().some((rect) => isCollision(rect, dinoRect));
 }
+
 function isCollision(rect1, rect2, padding = 100) {
     return (
         rect1.left < rect2.right - padding &&
@@ -61,7 +62,7 @@ function updateSpeedScale(delta) {
 function updateScore(delta) {
     score += delta * 0.001;
     const roundedUpScore = Math.round(score * 1000) / 1000;
-    scoreSpan.textContent = roundedUpScore + 'ETH';
+    scoreSpan.textContent = roundedUpScore + ' ETH';
 }
 
 function handleStart() {

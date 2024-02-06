@@ -35,17 +35,17 @@ export function getDinoRect() {
 }
 
 export function setDinoLose() {
-    dinoElem.src = 'assets/img/dino/dino-lose.svg';
+    dinoElem.src = 'assets/img/dino/dino-lose.png';
 }
 
 function handleRun(delta, speedScale) {
     if (isJumping) {
-        dinoElem.src = 'assets/img/dino/dino-jump.svg';
+        dinoElem.src = 'assets/img/dino/dino-jump.png';
         return;
     }
     if (currentFrameTime >= FRAME_TIME) {
         dinoFrame = (dinoFrame + 1) % DINO_FRAME_COUNT;
-        dinoElem.src = `assets/img/dino/dino-run-${dinoFrame}.svg`;
+        dinoElem.src = `assets/img/dino/dino-run-${dinoFrame}.png`;
         currentFrameTime -= FRAME_TIME;
     }
     currentFrameTime += delta * speedScale;
@@ -54,7 +54,8 @@ function handleRun(delta, speedScale) {
 function handleJump(delta) {
     if (!isJumping) return;
 
-    incrementCustomProperty(dinoElem, '--bottom', yVelocity * delta - 8);
+    console.log(yVelocity * delta);
+    incrementCustomProperty(dinoElem, '--bottom', yVelocity * delta * 0.5);
 
     if (getCustomProperty(dinoElem, '--bottom') <= 0) {
         setCustomProperty(dinoElem, '--bottom', 0);
