@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="./script.js" type="module" defer></script>
-    <title>Dino Game</title>
-</head>
-<body>
-    <div class="world" data-world>
-        <div class="score" data-score>0</div>
-        <div class="start-screen" data-start-screen>Press any key to start</div>
-        <img src="./assets/ground.png" class="ground" data-ground>
-        <img src="./assets/ground.png" class="ground" data-ground>
-        <img src="./assets/dino.png" alt="" class="dino" data-dino>
-    </div>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <script src="./script.js" type="module" defer></script>
+        <title>Dino Game</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+        <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+    </head>
+    <body>
+        <div class="world" data-world>
+            <div class="score" data-score>0</div>
+            <div class="start-screen text-blue-800 text-base" data-start-screen>
+                Press any key to start
+            </div>
+            <img src="./assets/ground.png" class="ground" data-ground />
+            <img src="./assets/ground.png" class="ground" data-ground />
+            <img
+                src="./assets/dino-stationary.png"
+                alt=""
+                class="dino"
+                data-dino
+            />
+        </div>
+    </body>
 </html>
