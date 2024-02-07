@@ -8,9 +8,10 @@ const WORLD_HEIGHT = 45;
 const SPEED_SCALE_INCREASE = 0.00001;
 
 const worldElem = document.querySelector('[data-world]');
-const scoreElem = document.querySelector('[data-score]');
+const thoughScoreElem = document.querySelector('[though-score]');
 const scoreSpan = document.querySelector('[data-score-number]');
 const startScreenElem = document.querySelector('[data-start-screen]');
+const resultScoreElem = document.querySelector('.result-score');
 
 setPixelToWorldScale();
 
@@ -68,6 +69,10 @@ function updateScore(delta) {
     scoreSpan.textContent = roundedUpScore + ' ETH';
 }
 
+function updateFinalScore() {
+    thoughScoreElem.textContent = 'Got ' + scoreSpan.textContent + ' yayyyy!';
+}
+
 function handleStart() {
     lastTime = null;
     speedScale = 1;
@@ -78,13 +83,17 @@ function handleStart() {
     setupCactus();
     startScreenElem.classList.add('hidden');
     window.requestAnimationFrame(update);
+    resultScoreElem.classList.add('hidden');
 }
 
 function handleLose() {
     setDinoLose();
+    updateFinalScore();
+
     setTimeout(() => {
         document.addEventListener('keydown', handleStart, { once: true });
         startScreenElem.classList.remove('hidden');
+        resultScoreElem.classList.remove('hidden');
     }, 100);
 }
 function setPixelToWorldScale() {

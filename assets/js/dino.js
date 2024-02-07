@@ -54,7 +54,6 @@ function handleRun(delta, speedScale) {
 function handleJump(delta) {
     if (!isJumping) return;
 
-    console.log(yVelocity * delta);
     incrementCustomProperty(dinoElem, '--bottom', yVelocity * delta * 0.5);
 
     if (getCustomProperty(dinoElem, '--bottom') <= 0) {
