@@ -12,14 +12,41 @@ const thoughScoreElem = document.querySelector('[though-score]');
 const scoreSpan = document.querySelector('[data-score-number]');
 const startScreenElem = document.querySelector('[data-start-screen]');
 const resultScoreElem = document.querySelector('.result-score');
+const jumpButton = document.querySelector('.jump-button');
 
 setPixelToWorldScale();
+updateStartScreenContent();
 
-window.addEventListener('resize', setPixelToWorldScale);
+window.addEventListener('resize', () => {
+    setPixelToWorldScale(), updateStartScreenContent();
+});
 document.addEventListener('keydown', handleStart, { once: true });
 document.addEventListener('touchstart', handleStart, { once: true });
 document.addEventListener('touchstart', function () {
-    onJump({ code: 'Space' }); // Simulate Space key press when screen is touched
+    const spaceKeyEvent = new KeyboardEvent('keydown', {
+        code: 'Space',
+        key: ' ',
+        keyCode: 32,
+        which: 32,
+        bubbles: true,
+        cancelable: true,
+    });
+
+    // Dispatch the space key event
+    document.dispatchEvent(spaceKeyEvent);
+});
+jumpButton.addEventListener('click', function () {
+    const spaceKeyEvent = new KeyboardEvent('keydown', {
+        code: 'Space',
+        key: ' ',
+        keyCode: 32,
+        which: 32,
+        bubbles: true,
+        cancelable: true,
+    });
+
+    // Dispatch the space key event
+    document.dispatchEvent(spaceKeyEvent);
 });
 
 let lastTime;
@@ -47,7 +74,10 @@ function update(time) {
 
 function checkLose() {
     const dinoRect = getDinoRect();
-    return getCactusRects().some((rect) => isCollision(rect, dinoRect));
+    const padding = window.innerWidth < 500 ? 50 : 100;
+    return getCactusRects().some((rect) =>
+        isCollision(rect, dinoRect, padding)
+    );
 }
 
 function isCollision(rect1, rect2, padding = 100) {
@@ -86,6 +116,15 @@ function handleStart() {
     resultScoreElem.classList.add('hidden');
 }
 
+function updateStartScreenContent() {
+    // check on mobile
+    if (window.innerWidth < 500) {
+        startScreenElem.textContent = 'Tap anywhere to start';
+    } else {
+        startScreenElem.textContent = 'Press any key to start';
+    }
+}
+
 function handleLose() {
     setDinoLose();
     updateFinalScore();
@@ -96,13 +135,4 @@ function handleLose() {
         resultScoreElem.classList.remove('hidden');
     }, 100);
 }
-function setPixelToWorldScale() {
-    let worldToPixelScale;
-    if (window.innerWidth / window.innerHeight < WORLD_WIDTH / WORLD_HEIGHT) {
-        worldToPixelScale = window.innerWidth / WORLD_WIDTH;
-    } else {
-        worldToPixelScale = window.innerHeight / WORLD_HEIGHT;
-    }
-    worldElem.style.width = `${WORLD_WIDTH * worldToPixelScale}px`;
-    worldElem.style.height = `${WORLD_HEIGHT * worldToPixelScale}px`;
-}
+function setPixelToWorldScale() {}

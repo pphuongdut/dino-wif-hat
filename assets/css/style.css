@@ -193,3 +193,33 @@ body {
     box-shadow: 40px -34px 0 0 #fff, -28px -6px 0 -2px #fff,
         -24px 17px 0 -6px #fff, -5px 25px 0 -10px #fff;
 }
+
+.jump-button {
+    background-color: #4b76eb;
+    padding: 10px 20px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1005;
+    color: white;
+    border-radius: 100px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media only screen and (max-width: 500px) {
+    .cactus {
+        width: 60px;
+        height: 60px;
+    }
+
+    .dino {
+        height: 120px;
+        width: 120px;
+    }
+
+    .ground {
+        height: 100px;
+    }
+}
