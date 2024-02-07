@@ -74,7 +74,7 @@ function update(time) {
 
 function checkLose() {
     const dinoRect = getDinoRect();
-    const padding = window.innerWidth < 500 ? 50 : 100;
+    const padding = window.innerWidth < 500 ? 80 : 100;
     return getCactusRects().some((rect) =>
         isCollision(rect, dinoRect, padding)
     );
