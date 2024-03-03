@@ -132,12 +132,7 @@ function showMoney() {
 }
 
 function hideMoney() {
-    document
-        .querySelector('.result--money')
-        ?.classList.remove('animate__bounce');
-    setTimeout(() => {
-        document.querySelector('.result--money').style.display = 'none';
-    }, 1000);
+    document.querySelector('.result--money').style.display = 'none';
 }
 
 function handleStart() {
