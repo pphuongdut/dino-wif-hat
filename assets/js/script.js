@@ -10,6 +10,7 @@ const SPEED_SCALE_INCREASE = 0.00001;
 const worldElem = document.querySelector('[data-world]');
 const thoughScoreElem = document.querySelector('[though-score]');
 const scoreSpan = document.querySelector('[data-score-number]');
+const closeBtn = document.querySelector('[data-close-btn]');
 const startScreenElem = document.querySelector('[data-start-screen]');
 const resultScoreElem = document.querySelector('.dino--lost');
 const jumpButton = document.querySelector('.jump-button');
@@ -47,6 +48,11 @@ jumpButton.addEventListener('click', function () {
 
     // Dispatch the space key event
     document.dispatchEvent(spaceKeyEvent);
+});
+
+closeBtn.addEventListener('click', function () {
+    document.getElementById('default-modal').classList.remove('block');
+    document.getElementById('default-modal').classList.add('hidden');
 });
 
 let lastTime;
