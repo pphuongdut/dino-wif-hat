@@ -132,9 +132,9 @@ body {
     --bottom: 0;
     position: absolute;
     left: 10%;
-    height: 230px;
-    width: 230px;
-    bottom: calc(var(--bottom) * 1% + 8vh);
+    height: 280px;
+    width: 280px;
+    bottom: calc(var(--bottom) * 1% + 6vh);
     z-index: 1002;
 }
 
@@ -161,13 +161,12 @@ body {
 .cactus {
     position: absolute;
     left: calc(var(--left) * 1%);
-    bottom: 6vh;
+    bottom: 8.5vh;
     height: 160px;
     z-index: 1001;
     min-height: 100px;
     width: 150px;
     padding: 0 20px;
-    object-fit: contain;
 }
 
 .main-button {
@@ -266,13 +265,13 @@ body {
 
 @media only screen and (max-width: 500px) {
     .cactus {
-        width: 60px;
-        height: 60px;
+        width: 100px;
+        height: 100px;
     }
 
     .dino {
-        height: 120px;
-        width: 120px;
+        height: 150px;
+        width: 150px;
     }
 
     .ground {

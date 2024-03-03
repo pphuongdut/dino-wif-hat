@@ -101,12 +101,11 @@ function updateScore(delta) {
 
 function updateEndGameStatus() {
     showSmoke();
-    showMoney();
 
     // After 3 seconds, hide the dino
     setTimeout(function () {
         hideSmoke();
-    }, 3000);
+    }, 4000);
 }
 
 function showSmoke() {
@@ -124,17 +123,6 @@ function hideSmoke() {
     }, 1000);
 }
 
-function showMoney() {
-    document
-        .querySelector('.result--money')
-        .classList.add('animate__animated', 'animate__bounce');
-    document.querySelector('.result--money').style.display = 'block';
-}
-
-function hideMoney() {
-    document.querySelector('.result--money').style.display = 'none';
-}
-
 function handleStart() {
     lastTime = null;
     speedScale = 1;
@@ -144,7 +132,7 @@ function handleStart() {
     setupDino();
     setupCactus();
     hideSmoke();
-    hideMoney();
+
     startScreenElem.classList.add('hidden');
     window.requestAnimationFrame(update);
     resultScoreElem.classList.add('hidden');
