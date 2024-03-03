@@ -1,6 +1,12 @@
 @font-face {
-    font-family: 'TitanOne';
-    src: url('../fonts/Titan_One/TitanOne-Regular.ttf') format('truetype');
+    font-family: 'AmericaTypewriterRegular';
+    src: url('../fonts/American_Typewriter_Regular/American_Typewriter_Regular.ttf')
+        format('truetype');
+}
+
+@font-face {
+    font-family: 'Cowboy';
+    src: url('../fonts/Cowboys.otf') format('truetype');
 }
 
 *,
@@ -9,7 +15,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: TitanOne, sans-serif;
+    font-family: AmericaTypewriterRegular, sans-serif;
 }
 
 img {
@@ -22,8 +28,62 @@ body {
     height: 100vh;
 }
 
+.game-frame {
+    background: url(../img/game-frame.png);
+    background-size: 100% 100%;
+    z-index: 1005;
+}
+
 .navbar {
-    z-index: 1003;
+    z-index: 1006;
+}
+
+.game-background {
+    background: url(../img/Bg\ sky.svg);
+}
+
+.game-background-night {
+    background: url(../img/bg/bg\ sky_night.png);
+    width: 100vw;
+    min-height: 100vh;
+    z-index: 1;
+    position: absolute;
+    height: 400vh; /* Increased height for demonstration */
+    background-position-y: 100%; /* Initial position at the bottom */
+    animation: moveBackground 12s ease-in-out infinite; /* Animation for movement */
+    background-repeat: repeat-y;
+    background-size: 100% 400%;
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position-y: 100%; /* Start position */
+    }
+    50% {
+        background-position-y: 30%; /* Mid position (top) */
+    }
+    100% {
+        background-position-y: 100%; /* End position (back to bottom) */
+    }
+}
+
+.sun {
+    animation: moveSun 12s linear infinite;
+}
+
+@keyframes moveSun {
+    0% {
+        left: 0;
+        bottom: -10vh;
+    } /* Start position */
+    50% {
+        left: 60vw;
+        bottom: 25vh;
+    } /* Mid position */
+    100% {
+        left: 100vw;
+        bottom: -10vh;
+    } /* End position (bottom of the screen) */
 }
 
 .world {
@@ -49,8 +109,8 @@ body {
 .ground {
     --left: 0;
     position: absolute;
-    width: 300%;
-    bottom: 0;
+    width: 350%;
+    bottom: 5%;
     left: calc(var(--left) * 1%);
     z-index: 1000;
 }
@@ -59,23 +119,19 @@ body {
     z-index: 1006;
 }
 
-.navbar {
-    z-index: 1006;
-}
-
 .sand {
     --left: 0;
     position: absolute;
-    width: 300%;
-    bottom: 10vh;
+    width: 350%;
+    bottom: 6vh;
     left: calc(var(--left) * 1%);
     z-index: 100;
 }
 
 .dino {
-    --bottom: 0;
+    --bottom: 4%;
     position: absolute;
-    left: 1%;
+    left: 8%;
     height: 230px;
     width: 230px;
     bottom: calc(var(--bottom) * 1% + 8vh);
@@ -93,34 +149,13 @@ body {
     padding: 0 20px;
 }
 
-.navbar {
-    z-index: 1006;
-}
-
 .main-button {
-    background-color: #4b76eb;
+    background: url(../img/buy-bg-button.png);
+    background-size: 100% 100%;
     padding: 10px 35px;
     position: relative;
     cursor: pointer;
     z-index: 1005;
-
-    &:after {
-        cursor: pointer;
-        background-color: #4b70eb;
-        content: '';
-        display: block;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        border-radius: 100px;
-        animation-name: blink;
-        animation-duration: 1.3s;
-        animation-iteration-count: infinite;
-        animation-direction: alternate-reverse;
-        animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-    }
 }
 
 @keyframes blink {
