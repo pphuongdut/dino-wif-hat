@@ -52,7 +52,7 @@ function createCactus() {
     const cactus = document.createElement('img');
     cactus.dataset.cactus = true;
     // random cactus
-    const cactusId = randomInteger(0, 6);
+    const cactusId = randomInteger(1, 3);
 
     cactus.src = 'assets/img/cactus/logo' + cactusId + '.png';
     cactus.classList.add('cactus');

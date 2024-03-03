@@ -11,7 +11,7 @@ const worldElem = document.querySelector('[data-world]');
 const thoughScoreElem = document.querySelector('[though-score]');
 const scoreSpan = document.querySelector('[data-score-number]');
 const startScreenElem = document.querySelector('[data-start-screen]');
-const resultScoreElem = document.querySelector('.result-score');
+const resultScoreElem = document.querySelector('.dino--lost');
 const jumpButton = document.querySelector('.jump-button');
 
 setPixelToWorldScale();
@@ -74,7 +74,7 @@ function update(time) {
 
 function checkLose() {
     const dinoRect = getDinoRect();
-    const padding = window.innerWidth < 500 ? 80 : 100;
+    const padding = window.innerWidth < 500 ? 80 : 120;
     return getCactusRects().some((rect) =>
         isCollision(rect, dinoRect, padding)
     );
@@ -99,8 +99,45 @@ function updateScore(delta) {
     scoreSpan.textContent = roundedUpScore + ' ETH';
 }
 
-function updateFinalScore() {
-    thoughScoreElem.textContent = 'Got ' + scoreSpan.textContent + ' yayyyy!';
+function updateEndGameStatus() {
+    showSmoke();
+    showMoney();
+
+    // After 3 seconds, hide the dino
+    setTimeout(function () {
+        hideSmoke();
+    }, 3000);
+}
+
+function showSmoke() {
+    document
+        .querySelector('.dino--lost')
+        .classList.add('animate__animated', 'animate__bounceIn');
+    document.querySelector('.dino--lost').style.display = 'block';
+}
+
+function hideSmoke() {
+    document.querySelector('.dino--lost').classList.remove('animate__bounceIn');
+    document.querySelector('.dino--lost').classList.add('animate__fadeOut');
+    setTimeout(() => {
+        document.querySelector('.dino--lost').style.display = 'none';
+    }, 1000);
+}
+
+function showMoney() {
+    document
+        .querySelector('.result--money')
+        .classList.add('animate__animated', 'animate__bounce');
+    document.querySelector('.result--money').style.display = 'block';
+}
+
+function hideMoney() {
+    document
+        .querySelector('.result--money')
+        ?.classList.remove('animate__bounce');
+    setTimeout(() => {
+        document.querySelector('.result--money').style.display = 'none';
+    }, 1000);
 }
 
 function handleStart() {
@@ -111,6 +148,8 @@ function handleStart() {
     setupSand();
     setupDino();
     setupCactus();
+    hideSmoke();
+    hideMoney();
     startScreenElem.classList.add('hidden');
     window.requestAnimationFrame(update);
     resultScoreElem.classList.add('hidden');
@@ -127,7 +166,7 @@ function updateStartScreenContent() {
 
 function handleLose() {
     setDinoLose();
-    updateFinalScore();
+    updateEndGameStatus();
 
     setTimeout(() => {
         document.addEventListener('keydown', handleStart, { once: true });
