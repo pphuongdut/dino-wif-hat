@@ -196,19 +196,19 @@ body {
 }
 
 .info-dialog {
-    background-image: url('../img/board\ Infor\ 1.png');
+    background-image: url('../img/board.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     color: #5c2f16;
 }
 
 .info-dialog * {
-    color: #5c2f16;
+    color: #5c2f16 !important;
 }
 
 .dialog-content {
     font-family: 'Raleway', sans-serif;
-    color: #5c2f16;
+    color: #5c2f16 !important;
 }
 
 .result-score {
